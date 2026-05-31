@@ -1,56 +1,136 @@
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html,
+body{
+width:100%;
+height:100%;
+overflow:hidden;
 }
 
 body{
-    width:100vw;
-    height:100vh;
-    overflow:hidden;
-    position:relative;
-    background:black;
+position:relative;
+background:#000;
 }
+
+/* Landing Artwork */
 
 #landing-image{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
 }
 
-/* Invisible clickable area */
+/* Duck Click Area */
+
 #duck-hotspot{
-    position:absolute;
 
-    /* Adjust later */
-    left:50%;
-    top:72%;
+position:absolute;
 
-    width:170px;
-    height:170px;
+/* Adjust these values later */
+left:50%;
+top:72%;
 
-    transform:translate(-50%, -50%);
+width:180px;
+height:180px;
 
-    cursor:pointer;
+transform:translate(-50%, -50%);
 
-    /* TEMPORARY */
-    border:2px solid red;
+cursor:pointer;
+
+z-index:10;
+
+-webkit-tap-highlight-color:transparent;
+
+/* TEMPORARY FOR POSITIONING */
+
+border:2px solid rgba(255,0,0,.5);
+
 }
 
-/* Fade transition */
+/* Fade Transition */
+
 #fade-overlay{
-    position:fixed;
-    inset:0;
 
-    background:black;
+position:fixed;
 
-    opacity:0;
-    pointer-events:none;
+inset:0;
 
-    transition:opacity 1s ease;
+background:#000;
+
+opacity:0;
+
+pointer-events:none;
+
+z-index:999;
+
+transition:opacity 1.5s ease;
+
 }
 
 #fade-overlay.active{
+opacity:1;
+}
+
+/* Star Burst */
+
+.burst-star{
+
+position:fixed;
+
+color:#fff6d6;
+
+font-size:14px;
+
+pointer-events:none;
+
+z-index:1000;
+
+animation:
+burst 1.5s ease-out forwards;
+
+}
+
+@keyframes burst{
+
+from{
+
     opacity:1;
+
+    transform:
+    translate(0,0)
+    scale(1);
+
+}
+
+to{
+
+    opacity:0;
+
+    transform:
+    translate(
+        var(--x),
+        var(--y)
+    )
+    scale(0);
+
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+#duck-hotspot{
+
+    width:150px;
+    height:150px;
+
+}
+
 }
