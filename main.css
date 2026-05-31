@@ -1,0 +1,214 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--bg:#0f1712;
+--bg2:#18231b;
+--text:#f4f1ea;
+--muted:#bfc7bc;
+--sage:#a8c3a1;
+--gold:#d9c6a5;
+}
+
+body{
+min-height:100vh;
+
+background:
+linear-gradient(
+    180deg,
+    var(--bg),
+    var(--bg2)
+);
+
+color:var(--text);
+
+font-family:'Inter',sans-serif;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+overflow:hidden;
+
+position:relative;
+
+}
+
+/* Background Stars */
+
+#stars{
+position:fixed;
+inset:0;
+z-index:0;
+pointer-events:none;
+}
+
+/* Hero */
+
+.hero{
+position:relative;
+z-index:2;
+
+text-align:center;
+
+margin-top:140px;
+
+}
+
+.hero-star{
+color:var(--gold);
+font-size:1.2rem;
+
+margin-bottom:20px;
+
+animation:twinkle 3s infinite;
+
+}
+
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+
+font-size:4rem;
+font-weight:500;
+
+margin-bottom:15px;
+
+}
+
+.hero p{
+color:var(--muted);
+
+font-size:1rem;
+
+line-height:1.8;
+
+}
+
+/* Divider */
+
+.divider{
+width:65%;
+max-width:500px;
+
+height:1px;
+
+margin:60px auto;
+
+background:
+linear-gradient(
+    to right,
+    transparent,
+    rgba(217,198,165,.5),
+    transparent
+);
+
+}
+
+/* Letter Card */
+
+.card{
+position:relative;
+z-index:2;
+
+width:85%;
+max-width:500px;
+
+padding:35px;
+
+text-align:center;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.03);
+
+border:
+1px solid rgba(255,255,255,.08);
+
+cursor:pointer;
+
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:
+translateY(-5px);
+
+border-color:
+rgba(168,195,161,.3);
+
+box-shadow:
+0 0 25px rgba(168,195,161,.08);
+
+}
+
+.card h2{
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+}
+
+.card p{
+color:var(--muted);
+
+line-height:1.7;
+
+}
+
+/* Footer */
+
+footer{
+margin-top:auto;
+
+padding:50px;
+
+color:var(--gold);
+
+position:relative;
+z-index:2;
+
+}
+
+/* Twinkle */
+
+@keyframes twinkle{
+
+0%{
+    opacity:.3;
+}
+
+50%{
+    opacity:1;
+}
+
+100%{
+    opacity:.3;
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero{
+    margin-top:120px;
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.card{
+    width:90%;
+}
+
+}
